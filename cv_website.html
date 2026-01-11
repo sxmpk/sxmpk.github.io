@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SXMPK | Igor Borzyszkowski</title>
+    <style>
+        /* --- Settings --- */
+        :root {
+            --bg-color: #0a0e14;   /* Deep Dark Blue */
+            --main-color: #4da6ff; /* Neon Blue */
+            --dim-color: #586e88;  /* Muted Text */
+        }
+
+        /* --- Reset --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--main-color);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 800px; /* Increased width */
+            width: 100%;
+            text-align: left;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* --- ASCII Art --- */
+        pre {
+            font-size: 14px; /* Increased from 10px */
+            line-height: 1.1;
+            font-weight: bold;
+            color: var(--main-color);
+            margin-bottom: 40px;
+            white-space: pre;
+            overflow: hidden;
+        }
+
+        /* --- Typography --- */
+        h1 {
+            font-size: 26px; /* Increased from 20px */
+            margin-bottom: 10px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .role {
+            font-size: 16px; /* Increased from 14px */
+            color: var(--dim-color);
+            margin-bottom: 50px;
+        }
+
+        /* --- Links Section --- */
+        h2 {
+            font-size: 16px; /* Increased from 14px */
+            color: var(--dim-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: normal;
+        }
+
+        .links {
+            list-style: none;
+        }
+
+        .links li {
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: var(--main-color);
+            text-decoration: none;
+            font-size: 18px; /* Increased from 14px for better clickability */
+            transition: opacity 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        .link-number {
+            color: var(--dim-color);
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        /* --- Cursor Animation --- */
+        .cursor {
+            display: inline-block;
+            width: 10px; /* Slightly thicker */
+            height: 18px; /* Slightly taller */
+            background-color: var(--main-color);
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Mobile Logic --- */
+        @media (max-width: 600px) {
+            pre { font-size: 10px; } /* Mobile size increased too */
+        }
+        @media (max-width: 400px) {
+            pre { font-size: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+<pre>
+  _________                      __
+ /   _____/__  ___ _____ ______ |  | __
+ \_____  \\  \/  //     \\____ \|  |/ /
+ /        \>    <|  Y Y  \  |_> >    <
+/_______  /__/\_ \__|_|  /   __/|__|_ \
+        \/      \/     \/|__|        \/
+</pre>
+
+        <h1>Igor Borzyszkowski</h1>
+        <div class="role">
+            Developer<span class="cursor"></span>
+        </div>
+
+        <h2>Links</h2>
+        <ul class="links">
+            <li>
+                <span class="link-number">[1]</span>
+                <a href="https://your-project-link.com" target="_blank">Current Project</a>
+            </li>
+        </ul>
+
+    </div>
+
+</body>
+</html>
