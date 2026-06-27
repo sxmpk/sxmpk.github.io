@@ -1,0 +1,12 @@
+.idea/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

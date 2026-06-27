@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanQR Case Study | Igor Borzyszkowski</title>
+    <style>
+        :root {
+            --bg-color: #0a0e14;
+            --panel-color: #0f1722;
+            --main-color: #4da6ff;
+            --accent-color: #58d68d;
+            --warm-color: #f5b041;
+            --text-color: #d7e4f2;
+            --dim-color: #8aa0b8;
+            --border-color: #233348;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .page {
+            max-width: 980px;
+            width: 100%;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 48px;
+            color: var(--dim-color);
+            font-size: 14px;
+        }
+
+        a {
+            color: var(--main-color);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.75;
+            text-decoration: underline;
+        }
+
+        .eyebrow {
+            color: var(--warm-color);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            color: var(--main-color);
+            font-size: clamp(36px, 7vw, 72px);
+            line-height: 1;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            max-width: 760px;
+            color: var(--text-color);
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 26px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 38px;
+        }
+
+        .hero-actions a {
+            font-size: 16px;
+        }
+
+        .tech-labels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 52px;
+        }
+
+        .tech-label {
+            border: 1px solid var(--border-color);
+            color: var(--dim-color);
+            font-size: 12px;
+            line-height: 1;
+            padding: 7px 9px;
+            white-space: nowrap;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 18px;
+            margin-bottom: 54px;
+        }
+
+        .media-panel {
+            min-height: 260px;
+            border: 1px solid var(--border-color);
+            background:
+                linear-gradient(135deg, rgba(77, 166, 255, 0.12), transparent 45%),
+                linear-gradient(315deg, rgba(88, 214, 141, 0.10), transparent 40%),
+                var(--panel-color);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .poster-panel {
+            padding: 0;
+            overflow: hidden;
+            background: var(--panel-color);
+        }
+
+        .poster-panel img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .media-label {
+            color: var(--warm-color);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .media-title {
+            color: var(--main-color);
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        .media-note {
+            color: var(--dim-color);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .case-study {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 42px;
+            align-items: start;
+        }
+
+        .case-nav {
+            position: sticky;
+            top: 32px;
+            border-left: 1px solid var(--border-color);
+            padding-left: 18px;
+        }
+
+        .case-nav a {
+            display: block;
+            color: var(--dim-color);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .content section {
+            padding-bottom: 34px;
+            margin-bottom: 34px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .content section:last-child {
+            border-bottom: 0;
+        }
+
+        h2 {
+            color: var(--main-color);
+            font-size: 22px;
+            font-weight: normal;
+            margin-bottom: 14px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            color: var(--text-color);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 8px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        li::before {
+            content: ">";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        code {
+            color: var(--warm-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 760px) {
+            body { padding: 24px; }
+            .topbar { align-items: flex-start; flex-direction: column; margin-bottom: 36px; }
+            .intro { font-size: 16px; }
+            .media-grid { grid-template-columns: 1fr; }
+            .poster-panel img { min-height: 360px; }
+            .case-study { grid-template-columns: 1fr; gap: 22px; }
+            .case-nav { position: static; display: flex; flex-wrap: wrap; gap: 12px; padding-left: 0; border-left: 0; }
+            .case-nav a { margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav class="topbar" aria-label="Case study navigation">
+            <a href="../">../ Back to CV</a>
+            <span>Igor Borzyszkowski / Project case study</span>
+        </nav>
+
+        <header>
+            <div class="eyebrow">Project case study</div>
+            <h1>PlanQR</h1>
+            <p class="intro">
+                PlanQR is a product-focused system for displaying university schedules, operating room tablets,
+                managing administrative messages, and supporting attendance workflows.
+            </p>
+            <div class="hero-actions">
+                <a href="https://github.com/sxmpk/planqr" target="_blank" rel="noreferrer">GitHub repository</a>
+                <a href="#media">Product media</a>
+                <a href="case-study.md">Markdown source</a>
+            </div>
+            <div class="tech-labels" aria-label="Technologies and project areas">
+                <span class="tech-label">Product development</span>
+                <span class="tech-label">Full-stack engineering</span>
+                <span class="tech-label">React</span>
+                <span class="tech-label">TypeScript</span>
+                <span class="tech-label">Vite</span>
+                <span class="tech-label">Express</span>
+                <span class="tech-label">Prisma</span>
+                <span class="tech-label">PostgreSQL</span>
+                <span class="tech-label">LDAP</span>
+                <span class="tech-label">Docker</span>
+                <span class="tech-label">nginx</span>
+                <span class="tech-label">QR workflows</span>
+                <span class="tech-label">Python integration</span>
+                <span class="tech-label">Technical documentation</span>
+            </div>
+        </header>
+
+        <section class="media-grid" id="media" aria-label="Project media">
+            <div class="media-panel poster-panel">
+                <img src="poster.png" alt="PlanQR project poster" data-optional-media>
+            </div>
+            <div class="media-panel">
+                <div class="media-label">Video</div>
+                <div class="media-title">Short product demo</div>
+                <p class="media-note">YouTube demo coming soon. The embedded product video will sit here after publication.</p>
+            </div>
+        </section>
+
+        <div class="case-study">
+            <aside class="case-nav" aria-label="Case study sections">
+                <a href="#loading">Loading</a>
+            </aside>
+
+            <article class="content" data-markdown="case-study.md">
+                <section id="loading">
+                    <h2>Loading</h2>
+                    <p>Loading case study content.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+    <script src="../scripts/markdown-case-study.js"></script>
+    <script src="../scripts/optional-media.js"></script>
+</body>
+</html>
