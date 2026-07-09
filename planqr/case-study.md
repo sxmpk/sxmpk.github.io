@@ -1,7 +1,3 @@
-# PlanQR Case Study
-
-PlanQR is a product-focused project for displaying university schedules, operating room tablets, managing administrative messages, and supporting attendance workflows. The project is connected to the public repository at <https://github.com/sxmpk/planqr>.
-
 ## Summary
 
 PlanQR is presented as a case study because it explains the full shape of a project: product requirements, frontend and backend delivery, database-backed administration features, authentication, deployment, and integration with external schedule and attendance systems.
@@ -36,4 +32,4 @@ The product has to support several real workflows in one system: schedule displa
 
 ## Links
 
-- GitHub repository: <https://github.com/sxmpk/planqr>
+- [GitHub repository](https://github.com/sxmpk/planqr)

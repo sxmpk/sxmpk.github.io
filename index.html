@@ -4,172 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SXMPK | Igor Borzyszkowski</title>
-    <style>
-        /* --- Settings --- */
-        :root {
-            --bg-color: #0a0e14;
-            --main-color: #4da6ff;
-            --dim-color: #8aa0b8;
-        }
-
-        /* --- Reset --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--main-color);
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
-
-        /* --- Layout --- */
-        .container {
-            max-width: 800px; /* Increased width */
-            width: 100%;
-            text-align: left;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        /* --- ASCII Art --- */
-        pre {
-            font-size: 14px; /* Increased from 10px */
-            line-height: 1.1;
-            font-weight: bold;
-            color: var(--main-color);
-            margin-bottom: 40px;
-            white-space: pre;
-            overflow: hidden;
-        }
-
-        /* --- Typography --- */
-        h1 {
-            font-size: 26px; /* Increased from 20px */
-            margin-bottom: 10px;
-            font-weight: normal;
-            letter-spacing: 1px;
-        }
-
-        .role {
-            font-size: 16px; /* Increased from 14px */
-            color: var(--dim-color);
-            margin-bottom: 44px;
-        }
-
-        /* --- Links Section --- */
-        h2 {
-            font-size: 16px; /* Increased from 14px */
-            color: var(--dim-color);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: normal;
-        }
-
-        .project {
-            display: grid;
-            grid-template-columns: 74px minmax(0, 1fr);
-            column-gap: 14px;
-            margin-bottom: 28px;
-        }
-
-        .project:last-child {
-            margin-bottom: 0;
-        }
-
-        .project-body {
-            max-width: 720px;
-        }
-
-        .project-title {
-            display: inline-block;
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--main-color);
-            font-weight: normal;
-        }
-
-        .project-summary {
-            color: #d7e4f2;
-            font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .tech-line {
-            color: var(--dim-color);
-            font-size: 12px;
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-
-        .tech-line span {
-            color: var(--main-color);
-        }
-
-        .project-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            align-items: center;
-        }
-
-        a {
-            color: var(--main-color);
-            text-decoration: none;
-            font-size: 18px; /* Increased from 14px for better clickability */
-            transition: opacity 0.3s;
-        }
-
-        a:hover {
-            opacity: 0.7;
-            text-decoration: underline;
-        }
-
-        .project-actions a {
-            font-size: 15px;
-        }
-
-        .link-number {
-            color: var(--dim-color);
-            margin-right: 15px;
-            font-size: 14px;
-        }
-
-        /* --- Cursor Animation --- */
-        .cursor {
-            display: inline-block;
-            width: 10px; /* Slightly thicker */
-            height: 18px; /* Slightly taller */
-            background-color: var(--main-color);
-            animation: blink 1s step-end infinite;
-            vertical-align: middle;
-            margin-left: 8px;
-        }
-
-        @keyframes blink { 50% { opacity: 0; } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- Mobile Logic --- */
-        @media (max-width: 600px) {
-            pre { font-size: 10px; } /* Mobile size increased too */
-            body { padding: 24px; align-items: flex-start; }
-            .project { grid-template-columns: 42px minmax(0, 1fr); column-gap: 10px; }
-            .project-title { font-size: 20px; }
-        }
-        @media (max-width: 400px) {
-            pre { font-size: 8px; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/site.css">
 </head>
-<body>
-
+<body class="home-body">
     <div class="container">
-
-<pre>
+<pre class="ascii-logo">
   _________                      __
  /   _____/__  ___ _____ ______ |  | __
  \_____  \\  \/  //     \\____ \|  |/ /
@@ -178,12 +17,12 @@
         \/      \/     \/|__|        \/
 </pre>
 
-        <h1>Igor Borzyszkowski</h1>
+        <h1 class="home-title">Igor Borzyszkowski</h1>
         <div class="role">
             Developer<span class="cursor"></span>
         </div>
 
-        <h2>Resume</h2>
+        <h2 class="section-heading">Resume</h2>
         <section class="project" aria-labelledby="resume-title">
             <span class="link-number">[1]</span>
             <div class="project-body">
@@ -198,89 +37,11 @@
             </div>
         </section>
 
-        <h2>Featured Projects</h2>
+        <h2 class="section-heading">Featured Projects</h2>
         <div id="project-list" aria-live="polite"></div>
-
     </div>
 
-    <script src="data/projects.js"></script>
-    <script>
-        (function renderProjects() {
-            var list = document.getElementById('project-list');
-            var projects = window.PROJECTS || [];
-
-            projects.forEach(function(project, index) {
-                var section = document.createElement('section');
-                var titleId = 'project-' + project.slug + '-title';
-                section.className = 'project';
-                section.setAttribute('aria-labelledby', titleId);
-
-                var number = document.createElement('span');
-                number.className = 'link-number';
-                number.textContent = '[' + (index + 1) + ']';
-
-                var body = document.createElement('div');
-                body.className = 'project-body';
-
-                var title = document.createElement(project.caseStudyUrl || project.repositoryUrl ? 'a' : 'span');
-                title.className = 'project-title';
-                title.id = titleId;
-                if (project.caseStudyUrl || project.repositoryUrl) {
-                    title.href = project.caseStudyUrl || project.repositoryUrl;
-                    if (!project.caseStudyUrl && project.repositoryUrl) {
-                        title.target = '_blank';
-                        title.rel = 'noreferrer';
-                    }
-                }
-                title.textContent = project.title;
-
-                var summary = document.createElement('p');
-                summary.className = 'project-summary';
-                summary.textContent = project.summary;
-
-                var stack = document.createElement('p');
-                var stackItems = project.stack || [];
-                stack.className = 'tech-line';
-                stack.setAttribute('aria-label', project.title + ' technologies');
-                stack.appendChild(document.createTextNode('Stack: '));
-                stackItems.forEach(function(item, itemIndex) {
-                    var label = document.createElement('span');
-                    label.textContent = item;
-                    stack.appendChild(label);
-                    if (itemIndex < stackItems.length - 1) {
-                        stack.appendChild(document.createTextNode(' / '));
-                    }
-                });
-
-                var actions = document.createElement('div');
-                actions.className = 'project-actions';
-
-                if (project.caseStudyUrl) {
-                    var caseStudy = document.createElement('a');
-                    caseStudy.href = project.caseStudyUrl;
-                    caseStudy.textContent = 'case study';
-                    actions.appendChild(caseStudy);
-                }
-
-                if (project.repositoryUrl) {
-                    var repository = document.createElement('a');
-                    repository.href = project.repositoryUrl;
-                    repository.target = '_blank';
-                    repository.rel = 'noreferrer';
-                    repository.textContent = 'repository';
-                    actions.appendChild(repository);
-                }
-
-                body.appendChild(title);
-                body.appendChild(summary);
-                body.appendChild(stack);
-                body.appendChild(actions);
-
-                section.appendChild(number);
-                section.appendChild(body);
-                list.appendChild(section);
-            });
-        }());
-    </script>
+    <script src="scripts/yaml-data.js"></script>
+    <script src="scripts/homepage.js"></script>
 </body>
 </html>
