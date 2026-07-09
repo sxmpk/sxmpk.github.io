@@ -1,34 +1,29 @@
 ## Summary
 
-PlanQR is presented as a case study because it explains the full shape of a project: product requirements, frontend and backend delivery, database-backed administration features, authentication, deployment, and integration with external schedule and attendance systems.
+PlanQR is a university room scheduling and attendance system. It displays live class schedules on tablets outside classrooms, lets administrators manage those tablets centrally, and supports attendance tracking through student card readers.
 
-The goal of the case study is not to position me as a single-language developer. The technology story is broader: React, TypeScript, Express, Prisma, PostgreSQL, LDAP, Docker, nginx, and a Python worker integration around physical card-reader events.
+The main challenge was integration: connecting tablet views, an admin panel, backend APIs, LDAP authentication, university schedule data, VPN-restricted infrastructure, and card-reader events into one working product.
 
-## Role
+## My Role
 
-I worked on PlanQR as a hands-on builder responsible for turning the project from an idea into a demonstrable product. The work covered product structure, implementation decisions, repository organization, deployment documentation, and preparing the project for review.
+I worked as a hands-on full-stack developer in a 4-person team. I contributed to frontend and backend implementation, integration planning, deployment documentation, and preparing the project for presentation and review.
 
-## Technology Labels
+## What I Worked On
 
-- Product development
-- Full-stack engineering
-- React
-- TypeScript
-- Vite
-- Express
-- Prisma
-- PostgreSQL
-- LDAP
-- Docker
-- nginx
-- QR workflows
-- Deployment readiness
-- Python integration
-- Technical documentation
+- Built React and TypeScript interfaces for room tablets, lecturers, and administrators.
+- Developed backend features with Express, Prisma, and PostgreSQL.
+- Helped integrate LDAP authentication, tablet registration, room assignment, priority messages, and attendance workflows.
+- Helped connect a Python card-reader service with the main backend API.
 
-## Problem
+## Main Challenge
 
-The product has to support several real workflows in one system: schedule display, tablet registration, room-level screens, administrative priority messages, attendance lists, and card-reader events. A portfolio link to code alone does not explain those product constraints or the technical architecture behind them.
+The hardest part was making several independent systems work together reliably. The project depended on university infrastructure, external schedule data, LDAP, VPN access, deployment setup, tablets, and physical card readers. Requirements also changed during development, so the team had to keep UI flows, API contracts, database models, and integrations aligned.
+
+## Outcome
+
+We delivered a working demonstrable system with tablet views, admin workflows, a backend API, database-backed configuration, LDAP-based access, and attendance integration.
+
+The project gave me practical experience with full-stack development, system integration, and building software that depends on real infrastructure instead of only local development assumptions.
 
 ## Links
 

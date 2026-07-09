@@ -1,7 +1,7 @@
 slug: planqr
 title: PlanQR
-summary: Schedule, room-tablet, administrative message, and attendance system with external hardware integration.
-detailSummary: PlanQR is a product-focused system for displaying university schedules, operating room tablets, managing administrative messages, and supporting attendance workflows.
+summary: University scheduling and attendance system for room tablets, administrators, LDAP access, and card-reader workflows.
+detailSummary: PlanQR displays live room schedules on tablets, lets administrators manage devices centrally, and supports attendance tracking through student card readers.
 repositoryUrl: https://github.com/sxmpk/planqr
 caseStudyPath: case-study.md
 stack:
@@ -12,24 +12,19 @@ stack:
   - PostgreSQL
   - LDAP
   - Docker
-  - nginx
-  - Python integration
+  - Python
 detailLabels:
-  - Product development
   - Full-stack engineering
   - React
   - TypeScript
-  - Vite
   - Express
   - Prisma
   - PostgreSQL
   - LDAP
   - Docker
-  - nginx
-  - QR workflows
-  - Deployment readiness
-  - Python integration
-  - Technical documentation
+  - Attendance tracking
+  - Card-reader integration
+  - Tablet workflows
 media:
   - type: image
     src: poster.png
